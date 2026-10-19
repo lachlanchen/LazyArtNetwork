@@ -62,3 +62,5 @@ If you use this software in research, cite this repository. [CITATION.cff](CITAT
   version = {0.1.0}
 }
 ```
+
+For the exact native, Ethereum and wrapped asset identities, see [Networks, assets and migration](docs/ASSETS.md).
