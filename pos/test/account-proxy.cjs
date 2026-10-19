@@ -12,3 +12,10 @@ test('account proxy rejects cross-origin mutations and method substitution',asyn
  try{for(const [path,options]of[['/api/v2/logout',{method:'POST',headers:{Origin:'https://coin.lazying.art'},body:'{}'}],['/api/v2/account',{method:'POST'}]]){const r=await fetch('http://127.0.0.1:'+front.port+path,options);assert.equal(r.status,403);}assert.equal(calls,0);}finally{await close(front.s,upstream.s);}
 });
 test('account proxy has no wallet or financial forwarding route',async()=>{const proxy=createAccountProxy({token:'synthetic'});for(const url of ['/api/v2/wallet/verify','/api/v2/register','/api/v1/admin/campaigns','/api/v2/profile/delete'])assert.equal(await proxy({url},{}),false);});
+
+test('only exact account landing results may carry a portal query',()=>{
+ const {accountLanding}=require('../account-proxy.cjs');
+ for(const result of ['connected','reconnect'])assert(accountLanding(new URL('https://lac.lazying.art/?account_result='+result),'GET'));
+ for(const path of ['/?code=secret','/?account_result=connected&code=secret','/?account_result=connected&account_result=reconnect','/rpc-pos?account_result=connected','/?account_result=unknown'])assert(!accountLanding(new URL(path,'https://lac.lazying.art'),'GET'));
+ assert(!accountLanding(new URL('https://lac.lazying.art/?account_result=connected'),'POST'));
+});

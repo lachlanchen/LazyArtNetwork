@@ -1,7 +1,7 @@
 // Standalone portal for an explicitly provisioned LazyArt node; loopback only.
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
 const {createPosService}=require('./pos/service.cjs');
-const {createAccountProxy}=require('./pos/account-proxy.cjs');
+const {createAccountProxy,accountLanding}=require('./pos/account-proxy.cjs');
 const {serveFile}=require('./lab/static-file.cjs');
 const port=Number(process.env.PORT||18888),origin=process.env.PUBLIC_ORIGIN||`http://127.0.0.1:${port}`;
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid port');
@@ -14,7 +14,7 @@ http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,origin);
  if(url.pathname==='/api/v2/auth/config'&&!process.env.ACCOUNT_TOKEN_FILE)return reply(res,200,{enabled:false,providers:[]});
  if(await account(req,res))return;
- if(url.search)throw Object.assign(Error(),{status:400});
+ if(url.search&&!accountLanding(url,req.method))throw Object.assign(Error(),{status:400});
  if(await service.handle(req,res,body,reply))return;
  if(!['GET','HEAD'].includes(req.method))throw Object.assign(Error(),{status:404});
  const file=path.resolve(root,'.'+(['/','/stake'].includes(url.pathname)?'/index.html':url.pathname));

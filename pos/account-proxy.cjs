@@ -33,4 +33,9 @@ function createAccountProxy({port = 8590, token, origin = 'https://lac.lazying.a
     return true;
   };
 }
-module.exports={createAccountProxy};
+function accountLanding(url, method) {
+  return ['GET','HEAD'].includes(method) && url.pathname==='/'
+    && [...url.searchParams.keys()].length===1
+    && ['connected','reconnect'].includes(url.searchParams.get('account_result'));
+}
+module.exports={createAccountProxy,accountLanding};
