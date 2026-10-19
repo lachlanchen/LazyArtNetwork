@@ -13,4 +13,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: node contracts-v2/test/cross-network.cjs
       - run: npm run build:web

@@ -11,7 +11,8 @@
     "build:web": "vite build pos/web --outDir dist",
     "compile": "node pos/compile.cjs && node contracts-v2/compile.cjs",
     "test": "npm run compile && node --test contracts-v2/test/migration-event.cjs lab/test/rpc-gateway.cjs lab/test/static-file.cjs pos/test/peer-transport.cjs pos/test/account-proxy.cjs && hardhat test --no-compile --config contracts-v2/hardhat.config.cjs contracts-v2/test/suite.cjs contracts-v2/test/migration.cjs && hardhat test --no-compile --config pos/hardhat.config.cjs pos/test/contracts.cjs",
-    "start": "node server.cjs"
+    "start": "node server.cjs",
+    "test:migration": "npm run compile && node contracts-v2/test/cross-network.cjs"
   },
   "dependencies": {
     "ethers": "6.15.0",

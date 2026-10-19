@@ -71,9 +71,9 @@ verification follows deployment. No irreversible transaction has a rollback.
 
 ## Migration and the playground
 
-An Ethereum migration bridge is not part of this candidate's authority. ERC-20
-interfaces, explicit asset IDs and the versioned registry allow a separately
-reviewed migration adapter later. Existing LAC holders cannot be migrated by a
+The token and treasury do not control cross-chain settlement. A separate
+`NetworkMigrationEscrow` candidate and read-only finalized-event verifier provide
+the migration interface described below. Existing LAC holders cannot be migrated by a
 balance snapshot alone; backing and replay/finality protections need their own
 review. There is no automatic points conversion or old-token debit.
 
@@ -109,3 +109,5 @@ retirement and pause authority. Ethereum v2 remains undeployed; these contracts
 and tests do not claim a live Ethereum bridge. Finalized-event verification,
 attestor custody, reserve amounts and paired deployments must be qualified before
 activation. Existing ETH and LAC are not used by compilation or tests.
+
+Run `npm run test:migration` for a disposable, two-network ERC-20/native round-trip with quorum signatures, finalized-event verification and replay rejection. No live assets are used.
