@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "LazyArtCoin v2 Ethereum deployment decisions; no transaction authorization",
+  "network": {"chain_id": 1},
+  "token": {"name": "LazyArtCoin", "symbol": "LAC", "decimals": 18, "initial_supply_whole_tokens": null, "lifetime_gross_cap_whole_tokens": null, "rolling_year_gross_cap_whole_tokens": null, "epoch_gross_cap_whole_tokens": null, "initial_epoch_allowance_whole_tokens": null, "epoch_seconds": null},
+  "governance": {"routine_delay_seconds": null, "module_change_delay_seconds": null, "proposer_multisig": null, "executor": null, "mint_guardian": null, "module_guardian": null},
+  "claims": {"attestor": null, "campaign_id": null, "campaign_budget_whole_tokens": null, "per_claim_limit_whole_tokens": null},
+  "tasks": {"per_task_limit_whole_tokens": null},
+  "deployment": {"deployer": null, "starting_nonce": null, "fee_budget_eth": null},
+  "qualification": {"independent_review": null, "multisig_custody_verified": null, "deployment_simulation": null, "source_verification_plan": null, "owner_transaction_approval": null},
+  "migration": {"existing_LAC_automatic_conversion": false, "shared_points_conversion": false, "production_bridge": false},
+  "broadcast_enabled": false
+}

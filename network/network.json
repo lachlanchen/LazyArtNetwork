@@ -1,0 +1,15 @@
+{
+  "chainId": 20261020,
+  "cosmosChainId": "lazyart-20261020-1",
+  "genesisSha256": "9704cd4b4be79cf160509463bce65333d8d432bda66a9668a4f55105203ac51b",
+  "binarySha256": "60fc670ee4034f073341abd031ac4747527202d1d0090184ad6de877ffb73de0",
+  "nominalBlockSeconds": 8,
+  "nativeCurrency": {
+    "name": "LazyArtCoin",
+    "symbol": "LAC",
+    "decimals": 18
+  },
+  "peer": "ce4b35c62742a2ca44ecfd425d80b14e8fa52417",
+  "sourceCommit": "c3ae9067a7eadcdea55a5192226916deb44c71c4",
+  "upstream": "https://github.com/cosmos/evm/tree/v0.7.3"
+}

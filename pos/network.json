@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "name": "LazyArt",
+  "evmChainId": 20261020,
+  "cosmosChainId": "lazyart-20261020-1",
+  "nativeCurrency": {
+    "name": "LazyArtCoin",
+    "symbol": "LAC",
+    "decimals": 18,
+    "baseDenom": "alac"
+  },
+  "upstream": {
+    "repository": "https://github.com/cosmos/evm",
+    "tag": "v0.7.3",
+    "commit": "c3ae9067a7eadcdea55a5192226916deb44c71c4",
+    "go": "1.25.9"
+  },
+  "genesis": {
+    "totalWhole": "1000000",
+    "bootstrapValidators": 4,
+    "bootstrapStakeEachWhole": "1000",
+    "bootstrapLiquidEachWhole": "100",
+    "faucetBudgetWhole": "100000",
+    "faucetAwardWhole": "100",
+    "faucetGasReserveWhole": "100",
+    "treasuryWhole": "895500",
+    "inflation": "0",
+    "maxValidators": 32,
+    "unbondingSeconds": 86400,
+    "blockSeconds": 8,
+    "minimumGasPriceBaseUnits": "1000000"
+  },
+  "endpoints": {
+    "rpc": "https://lac.lazying.art/rpc-pos",
+    "web": "https://lac.lazying.art/stake",
+    "p2p": "https://lac.lazying.art/api/pos/peer"
+  },
+  "scope": "independent community pilot; no backing or conversion from Ethereum LAC or app points",
+  "bootstrapReserve": {
+    "delegatedWhole": "396000",
+    "eachValidatorWhole": "99000",
+    "source": "fresh native treasury",
+    "faucetMaximumVotingShare": "20% while the bootstrap reserve remains bonded"
+  }
+}

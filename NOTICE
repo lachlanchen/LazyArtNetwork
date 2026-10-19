@@ -1,0 +1,2 @@
+LazyArt uses the unmodified Cosmos EVM v0.7.3 reference client, commit c3ae9067a7eadcdea55a5192226916deb44c71c4. Consensus implementation and dependencies remain under their upstream licenses. The build script fetches upstream source; no upstream binary or private runtime state is included in this repository. See https://github.com/cosmos/evm/tree/v0.7.3.
+OpenZeppelin Contracts are installed as a dependency under MIT. Brand artwork identifies LazyArt and LazyingArt; no trademark rights are granted by the source-code license.

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use LazyArtNetwork, please cite this repository."
+type: software
+title: "LazyArtNetwork: Community Proof-of-Stake Network and LAC Contracts"
+version: 0.1.0
+date-released: 2026-10-19
+authors:
+  - family-names: Chen
+    given-names: Lachlan
+    alias: lachlanchen
+repository-code: "https://github.com/lachlanchen/LazyArtNetwork"
+url: "https://lac.lazying.art"
+keywords: [blockchain, proof-of-stake, ethereum, community, solidity]

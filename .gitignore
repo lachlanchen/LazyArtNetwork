@@ -1,0 +1,9 @@
+node_modules/
+.private/
+pos/public/
+pos/web/dist/
+.env
+*.key
+*.sqlite*
+__pycache__/
+.DS_Store

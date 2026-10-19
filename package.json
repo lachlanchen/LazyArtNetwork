@@ -1,0 +1,29 @@
+{
+  "name": "lazyart-network",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LazyArt: an EVM proof-of-stake community network, native LAC and Fun/D contracts",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "build:web": "vite build pos/web --outDir dist",
+    "compile": "node pos/compile.cjs && node contracts-v2/compile.cjs",
+    "test": "npm run compile && node --test contracts-v2/test/migration-event.cjs lab/test/rpc-gateway.cjs lab/test/static-file.cjs pos/test/peer-transport.cjs pos/test/account-proxy.cjs && hardhat test --no-compile --config contracts-v2/hardhat.config.cjs contracts-v2/test/suite.cjs contracts-v2/test/migration.cjs && hardhat test --no-compile --config pos/hardhat.config.cjs pos/test/contracts.cjs",
+    "start": "node server.cjs"
+  },
+  "dependencies": {
+    "ethers": "6.15.0",
+    "@openzeppelin/contracts": "5.4.0"
+  },
+  "devDependencies": {
+    "hardhat": "2.26.3",
+    "solc": "0.8.26",
+    "vite": "7.2.4",
+    "@nomicfoundation/hardhat-ethers": "3.1.0",
+    "@nomicfoundation/hardhat-chai-matchers": "2.1.0",
+    "@nomicfoundation/hardhat-network-helpers": "1.1.0",
+    "chai": "4.5.0"
+  }
+}
